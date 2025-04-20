@@ -1,36 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kylee - Image Uploader</title>
-    <link rel="shortcut icon" href="https://telegra.ph/file/6f40e243bc9c05f2a2ab8.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="scift.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <body onclick="playAudio()">
+    <audio id="myAudio">
+        <source src="https://files.catbox.moe/zwwbtx.opus" type="audio/mp3">
+    </audio>
+  <title>JavaScript Encrypt Tool</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #bb86fc;
+      text-align: center;
+      text-shadow: 0 0 10px #bb86fc;
+    }
+    label {
+      color: #a278ff;
+      font-weight: bold;
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      background: #1a1a1a;
+      color: #00ff88;
+      border: 2px solid #bb86fc;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 15px;
+      resize: vertical;
+      box-shadow: 0 0 10px #bb86fc40;
+    }
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background: #bb86fc;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+cursor: pointer;
+      box-shadow: 0 0 10px #bb86fc;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #a278ff;
+      box-shadow: 0 0 15px #d8b4ff;
+    }
+    #footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-    <br>
-    <div class="header">
-        <h1>Upload Images <span style="color: rgb(156, 1, 1);">telegra.ph</span></h1>
-        <br>
-        <span>[ 5 MB ] BY KYLEE</span>
-    </div>
-    <form onsubmit="uploadImages(event)" enctype="multipart/form-data">
-        <input type="file" name="images" accept="image/*" onchange="previewImages(event)" multiple required id="file-input">
-        <div id="preview-container" class="preview-container"></div>
-        <button type="submit" id="submit-btn">Upload</button>
-        <div id="spinner" class="spinner" style="display: none;"></div> <!-- Spinner loading -->
-        <button id="refresh-btn" style="display: none;" onclick="refreshPage()">Re-upload</button> <!-- Refresh button -->
-    </form>
-    <div id="output-container" class="output-container" style="display: none;">
-        <center><textarea id="output-textarea" readonly></textarea></center>
-        <button id="copy-textarea-btn" class="copy-btn" onclick="copyTextarea()" style="display: none;">
-            <i class="fas fa-copy"></i> Copy
-        </button>
-        <div id="output-list" class="output-list"></div>
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-</html>
+  <h1>JavaScript Obfuscator Powered By Kylee Hayanasi</h1>
+
+  <label for="input">Masukann Code JavaScript Yang Belum Di Encrypt.</label>
+  <textarea id="input" placeholder="Masukan Code JavaScript Mu Di Sini."></textarea>
+
+  <button onclick="encryptCode()">Encrypt</button>
+  <button onclick="copyResult()">Copy Hasil</button>
+
+  <label for="output"></label>
+  <textarea id="output" readonly placeholder="Hasil Code JavaScript Encrypt."></textarea>
+
+  <div id="footer">Soryy Bree Kalo Masih Bisa Di Decrypt :V</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+  <script>
+    function encryptCode() {
+      const inputCode = document.getElementById('input').value;
+      const obfuscationResult = JavaScriptObfuscator.obfuscate(inputCode, {
+        compact: true,
+        controlFlowFlattening: true,
+        deadCodeInjection: true,
+        disableConsoleOutput: true,
+        stringArray: true,
+        stringArrayEncoding: ['base64'],
+stringArrayThreshold: 0.75
+      });
+      document.getElementById('output').value = obfuscationResult.getObfuscatedCode();
+    }
+
+    function copyResult() {
+      const output = document.getElementById('output');
+      output.select();
+      output.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert("🟣 Hasil berhasil disalin ke clipboard!");
+    }
+  </script>
+  </body>
+	</html>
