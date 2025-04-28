@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encrypt JavaScript | KrizzTzy Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Encrypt JavaScript 🇯🇵 🇨🇳 Style</h1>
+  
+  <textarea id="codeInput" placeholder="Paste your JavaScript code here..."></textarea>
+  
+  <div class="divider">OR</div>
+  
+  <input type="file" id="uploadFile" accept=".js">
+  
+  <button onclick="encrypt()">Encrypt Now</button>
+
+  <h2>Result:</h2>
+  <textarea id="output" readonly placeholder="Encrypted code appears here..."></textarea>
+  
+  <button id="downloadBtn" onclick="downloadEncrypted()" style="display:none;">Download Encrypted File</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
